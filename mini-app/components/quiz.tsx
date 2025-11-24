@@ -153,11 +153,12 @@ export default function Quiz() {
         pisces: 0,
       };
       answers.forEach((s) => (counts[s] += 1));
-      // include last answer
       counts[sign] += 1;
-      const maxSign = Object.entries(counts).reduce((a, b) =>
-        b[1] > a[1] ? b : a
-      )[0] as ZodiacSign;
+      const maxCount = Math.max(...Object.values(counts));
+      const tiedSigns = Object.entries(counts)
+        .filter(([, count]) => count === maxCount)
+        .map(([sign]) => sign as ZodiacSign);
+      const maxSign = tiedSigns[Math.floor(Math.random() * tiedSigns.length)];
       setResult(maxSign);
     }
   };
