@@ -171,7 +171,7 @@ export default function Quiz() {
 
   if (result) {
     return (
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md bg-gradient-to-br from-indigo-100 to-purple-200">
         <CardHeader>
           <CardTitle>Your Zodiac Sign</CardTitle>
         </CardHeader>
@@ -181,6 +181,7 @@ export default function Quiz() {
             alt={result}
             width={256}
             height={256}
+            className="rounded-full border-4 border-white shadow-lg"
           />
           <p className="text-xl capitalize">{result}</p>
           <Share text={`I scored ${result} in the Zodiac Quiz! ${url}`} />
